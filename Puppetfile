@@ -49,4 +49,4 @@ mod 'puppetlabs/stdlib', '4.3.2'
 mod 'puppetlabs/vcsrepo', '1.1.0'
 
 mod 'ldn',
-  :git => 'gitolite_online:puppet/puppet-ldn.git'
+  :git => 'gitldn:puppet/puppet-ldn.git'
