@@ -7,7 +7,7 @@ forge "http://forge.puppetlabs.com"
 
 # Forge Modules
 mod 'sbadia/allknowingdns', '1.0.0'
-mod 'eirc/account', '0.2.0'
+mod 'puppetlabs/accounts', '1.0.0'
 mod 'markhellewell/aptcacherng', '0.1.7'
 mod 'thomasvandoren/etckeeper', '0.0.9'
 mod 'thias/bind', '0.5.1'
