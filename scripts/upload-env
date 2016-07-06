@@ -1,0 +1,52 @@
+#!/bin/sh
+
+set -e
+
+# ##### Basic functions
+
+log() {
+  echo "$@" >&2
+}
+
+die() {
+  echo "$1" >&2
+  exit "$2"
+}
+
+# Check that a value matched a given regex.
+# Usage: validate '^[a-zA-Z][-a-zA-Z0-9_]$' foo
+validate_grep() {
+    local value
+    local pattern
+    pattern="$1"
+    value="$2"
+    printf '%s\n' "$value" | wc -l | grep ^1$ > /dev/null || return 1
+    printf '%s\n' "$value" | grep -- "$pattern" > /dev/null || return 1
+    return 0
+}
+
+# ##### Argument processing
+
+if [ "$1" = "--help" ]; then
+  cat <<EOF
+Upload the working directory as an environment in the puppet server
+Usage: ./script upload-env my_environment
+EOF
+  exit 0
+fi
+
+env="$1"
+validate_grep '^[a-zA-Z][-a-zA-Z0-9_]*$' "$env" || die "Invalid environment name" 1
+test "$env" != "production" || die "Please, do not use with the production environment." 1
+
+# ##### Upload the stuff on the server
+
+sources="Gemfile Gemfile.lock modules environment.conf manifests"
+path=/srv/puppet/$env/
+rsync_opt="-rl --perms --chmod=u+rwX,go+rX --delete --exclude .git*"
+puppet_host=zoidberg.newldn
+
+log "Create env on puppet server ($path)"
+ssh "$puppet_host" sudo mkdir -p "$path"
+ssh $puppet_host 'user=$(whoami) && group=$(id -gn) && sudo chown $user:$group' $path
+rsync $rsync_opt $sources "$puppet_host:${path}$dest"

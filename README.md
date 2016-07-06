@@ -50,11 +50,6 @@ Install the modules:
 
     r10k puppetfile install Puppetfile
 
-Commit and push:
-
-    git commit -am"[vpn] Do something on the VPN"
-    git push origin HEAD
-
 Update the puppet from the repository and apply:
 
     # Update the puppet master from the git repo:
@@ -62,3 +57,22 @@ Update the puppet from the repository and apply:
     
     # Apply the rules from the puppet master on some server:
     ssh foo.newldn sudo puppet agent -t
+
+## Development
+
+Don't forget to install the modules:
+
+    r10k puppetfile install Puppetfile
+
+Upload the current directory as as `test` environment on the Puppet master:
+
+    ./scripts/upload-env test
+
+Apply the `test` environment on some server:
+
+    ssh foo.newldn sudo puppet agent -t --environment=test
+
+Commit and push our modifications:
+
+    git commit -am"[vpn] Do something on the VPN"
+    git push origin HEAD
