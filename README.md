@@ -12,11 +12,35 @@
   * `modules/ldn` contains the private stuff (ideally it should be hiera files
     only),
 
-## Basic usage
+## Installation
+
+### Prerequists
+
+* ssh (client)
+
+* git
+
+* Puppet stuff: puppet (3.7), hiera, r10k
+
+### Installing puppet with bundler
+
+You might want to install puppet using bundler in order to have the correct
+version (especially if your distribution does not ship the correct version):
+
+    apt install bundler
+    bundle install
+
+The local ruby/puppet commands must be executed with `bundle exec`:
+
+    bundle exec r10k puppetfile install Puppetfile
+
+### SSH
 
 This documentation assumes that your ~/.ssh/config is configured in order to
 access to the servers with `ssh $home.newldn` and the GIT repositories with
 `ssh gitldn`.
+
+## Basic usage
 
 Clone the repository:
 
