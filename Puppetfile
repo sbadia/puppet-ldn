@@ -7,7 +7,7 @@ forge "http://forge.puppetlabs.com"
 
 # Forge Modules
 mod 'sbadia/allknowingdns', '1.0.0'
-#mod 'puppetlabs/accounts', '1.0.0'
+mod 'puppetlabs/accounts', '1.0.0'
 mod 'markhellewell/aptcacherng', '0.1.7'
 mod 'thomasvandoren/etckeeper', '0.0.9'
 mod 'thias/bind', '0.5.1'
@@ -38,10 +38,6 @@ mod 'jfryman/inittab',
 mod 'jvaubourg/nginxpack',
   :git => 'https://github.com/jvaubourg/puppetlabs-nginxpack',
   :ref => '50a0fc2bcd2d1365aed7e7c1e76accb7baee17e7'
-# FIXME(sbadia): not released yet
-mod 'puppetlabs/accounts',
-  :git => 'https://github.com/puppetlabs/puppetlabs-accounts',
-  :ref => '5944004f71aa17f657bbd789a360feba03815831'
 
 ## PuppetLabs
 mod 'puppetlabs/apache', '1.1.1'
