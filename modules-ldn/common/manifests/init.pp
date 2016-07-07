@@ -46,6 +46,7 @@ class common {
   # TODO, sudo / sudo-ldap
   # TODO, sudo %puppetdev
   # TODO, ssh_auth_sock
+  # TODO, backup user
 
   file {
     '/usr/local/bin/cronic':
