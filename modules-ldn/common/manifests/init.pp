@@ -39,14 +39,9 @@ class common {
     locales        => hiera("locales")
   }
 
-  package {
-    ['tmux','screen','netcat','htop','rsync','host','dmraid',
-      'man-db','vim','zsh','bash','iputils-ping','dnsutils',
-      'python-apt','aptitude','debian-goodies','molly-guard']:
-      ensure => installed;
-  }
-
-  ensure_packages(['logrotate'])
+  ensure_packages(['tmux','screen','netcat','htop','rsync','host','dmraid',
+    'man-db','vim','zsh','bash','iputils-ping','dnsutils',
+    'python-apt','aptitude','debian-goodies','molly-guard'])
 
   # TODO, sudo / sudo-ldap
   # TODO, sudo %puppetdev
