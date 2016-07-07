@@ -6,11 +6,13 @@
 
 * `Puppetfile` list of external modules to load in `modules/`;
 
-* `modules/` contains the modules decmlared by `Puppetfile` and managed
-  by `r10k`;
+* `modules/` contains the modules declared by `Puppetfile` and managed
+  by `r10k`,
 
   * `modules/ldn` contains the private stuff (ideally it should be hiera files
-    only),
+    only);
+
+* `modules-ldn/` contains some modules local to this repository.
 
 ## Installation
 

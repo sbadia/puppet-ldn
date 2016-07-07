@@ -1,4 +1,5 @@
 node 'base' {
+  include '::common'
   include '::ldn::users'
 }
 
