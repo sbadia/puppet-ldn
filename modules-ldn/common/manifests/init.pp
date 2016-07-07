@@ -35,7 +35,7 @@ class common {
   }
 
   class {'locales':
-    default_locale => 'en_US.UTF-8 UTF-8',
+    default_locale => 'en_US.UTF-8',
     locales        => hiera("locales")
   }
 
