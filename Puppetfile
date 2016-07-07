@@ -2,8 +2,7 @@
 #
 # Infrastucture Lorraine Data Network <benevoles@listes.ldn-fai.net>
 #
-#forge "https://forgeapi.puppetlabs.com" # prepare migration to API v3
-forge "http://forge.puppetlabs.com"
+forge "https://forgeapi.puppetlabs.com"
 
 # Forge Modules
 mod 'sbadia/allknowingdns', '1.0.0'
