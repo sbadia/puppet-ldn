@@ -12,7 +12,7 @@
   * `modules/ldn` contains the private stuff (ideally it should be hiera files
     only);
 
-* `modules-ldn/` contains some modules local to this repository.
+* `internal-modules/` contains some modules local to this repository.
 
 ## Installation
 
