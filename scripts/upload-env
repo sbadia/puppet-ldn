@@ -41,7 +41,7 @@ test "$env" != "production" || die "Please, do not use with the production envir
 
 # ##### Upload the stuff on the server
 
-sources="Gemfile Gemfile.lock modules environment.conf manifests"
+sources="Gemfile Gemfile.lock modules modules-ldn environment.conf manifests"
 path=/srv/puppet/$env/
 rsync_opt="-rl --perms --chmod=u+rwX,go+rX --delete --exclude .git*"
 puppet_host=zoidberg.newldn
