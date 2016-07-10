@@ -5,10 +5,9 @@
 # Date:: 2013-09-21 13:36:02 +0200
 # Maintainer:: Julien Vaubourg (<julien@vaubourg.com>)
 #
-# Class:: dns
+# Class:: ldn::dns
 #
 #
-class dns {
+class ldn::dns {
   include 'bind'
-
 }

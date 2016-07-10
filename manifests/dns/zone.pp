@@ -1,15 +1,12 @@
-# Module:: dns
-# Manifest:: authoritative.pp
+# Module:: ldn
+# Manifest:: dns/authoritative.pp
 #
 # Author:: Julien Vaubourg (<julien@vaubourg.com>)
 # Date:: 2013-09-21 13:36:02 +0200
 # Maintainer:: Julien Vaubourg (<julien@vaubourg.com>)
 #              Sebastien Badia (<seb@sebian.fr>)
-#
-# Class:: dns::authoritative inherits dns
-#
-#
-define dns::zone {
+
+define ldn::dns::zone {
   bind::server::file {"db.$title":
     zonedir     => '/etc/bind/zones',
     owner       => 'bind',

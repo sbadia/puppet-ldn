@@ -1,0 +1,14 @@
+{
+  "name": "ldn",
+  "version": "0.0.1",
+  "author": "Lorraine Data Network",
+  "summary": "Lorraine Data Network internal puppet module (all specific configurations)",
+  "license": "Apache-2.0",
+  "source": "gitldn:puppet/puppet",
+  "project_page": "https://wiki.ldn-fai.net/w/Puppet",
+  "issues_url": "https://repo.ldn-fai.net/redmine/",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}

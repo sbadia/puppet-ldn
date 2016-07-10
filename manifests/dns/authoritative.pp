@@ -1,15 +1,15 @@
-# Module:: dns
-# Manifest:: authoritative.pp
+# Module:: ldn
+# Manifest:: dns/authoritative.pp
 #
 # Author:: Julien Vaubourg (<julien@vaubourg.com>)
 # Date:: 2013-09-21 13:36:02 +0200
 # Maintainer:: Julien Vaubourg (<julien@vaubourg.com>)
 #              Sebastien Badia (<seb@sebian.fr>)
 #
-# Class:: dns::authoritative inherits dns
+# Class:: ldn::dns::authoritative inherits dns
 #
 #
-class dns::authoritative inherits dns {
+class ldn::dns::authoritative inherits dns {
 
   package { 'zonecheck':
     ensure => installed,
@@ -40,7 +40,7 @@ class dns::authoritative inherits dns {
   }
 
   $zones = hiera_hash('zones', {})
-  create_resources(dns::zone, $zones)
+  create_resources(ldn::dns::zone, $zones)
 
 
-} # Class:: dns::authoritative inherits dns
+} # Class:: ldn::dns::authoritative inherits dns

@@ -1,5 +1,5 @@
-# Module:: common
-# Manifest:: init.pp
+# Module:: ldn
+# Manifest:: common.pp
 #
 # Lorraine Data Network http://ldn-fai.net/
 # Author:: Sebastien Badia (<seb@sebian.fr>)
@@ -10,7 +10,7 @@
 # Class:: common
 #
 #
-class common {
+class ldn::common {
 
   class {'dnsclient':
     nameservers => hiera_array('nameservers', undef),
@@ -51,7 +51,7 @@ class common {
   file {
     '/usr/local/bin/cronic':
       ensure => file,
-      source => 'puppet:///modules/common/cronic',
+      source => 'puppet:///modules/ldn/common/cronic',
       owner  => root,
       group  => root,
       mode   => '0755';
@@ -94,7 +94,7 @@ class common {
   # TODO, setup sources
   # TODO, setup ssh
 
-  class {'::motd': template => 'common/motd.erb'; }
+  class {'::motd': template => 'ldn/common/motd.erb'; }
 
   # Avoid a strange bug with facter
   # Could not retrieve fact='selinux', resolution='<anonymous>'': Invalid argument - /proc/self/attr/current
