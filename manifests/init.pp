@@ -1,4 +1,4 @@
-# Module:: common
+# Module:: public
 # Manifest:: init.pp
 #
 # Lorraine Data Network http://ldn-fai.net/
@@ -7,8 +7,8 @@
 # Maintainer:: Sebastien Badia (<seb@sebian.fr>)
 #
 
-# Class:: common
+# Class:: public
 #
 #
-class ldn {
+class public {
 }

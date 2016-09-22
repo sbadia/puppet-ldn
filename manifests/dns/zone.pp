@@ -1,4 +1,4 @@
-# Module:: ldn
+# Module:: public
 # Manifest:: dns/authoritative.pp
 #
 # Author:: Julien Vaubourg (<julien@vaubourg.com>)
@@ -6,12 +6,12 @@
 # Maintainer:: Julien Vaubourg (<julien@vaubourg.com>)
 #              Sebastien Badia (<seb@sebian.fr>)
 
-define ldn::dns::zone {
+define public::dns::zone {
   bind::server::file {"db.$title":
     zonedir     => '/etc/bind/zones',
     owner       => 'bind',
     group       => 'bind',
-    source_base => 'puppet:///modules/ldn/authoritative/zones/',
+    source_base => 'puppet:///modules/public/authoritative/zones/',
     require     => File['/etc/bind/zones'],
   }
 }

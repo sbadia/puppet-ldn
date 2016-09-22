@@ -1,4 +1,4 @@
-# Module:: ldn
+# Module:: public
 # Manifest:: dns/authoritative.pp
 #
 # Author:: Julien Vaubourg (<julien@vaubourg.com>)
@@ -6,10 +6,10 @@
 # Maintainer:: Julien Vaubourg (<julien@vaubourg.com>)
 #              Sebastien Badia (<seb@sebian.fr>)
 #
-# Class:: ldn::dns::authoritative inherits dns
+# Class:: public::dns::authoritative inherits dns
 #
 #
-class ldn::dns::authoritative inherits dns {
+class public::dns::authoritative inherits dns {
 
   package { 'zonecheck':
     ensure => installed,
@@ -28,7 +28,7 @@ class ldn::dns::authoritative inherits dns {
     zonedir     => '/etc/bind',
     owner       => 'bind',
     group       => 'bind',
-    source_base => 'puppet:///modules/ldn/authoritative/confs/',
+    source_base => 'puppet:///modules/public/authoritative/confs/',
     # require     => File['/etc/all-knowing-dns.conf'],
   }
 
@@ -40,7 +40,7 @@ class ldn::dns::authoritative inherits dns {
   }
 
   $zones = hiera_hash('zones', {})
-  create_resources(ldn::dns::zone, $zones)
+  create_resources(public::dns::zone, $zones)
 
 
-} # Class:: ldn::dns::authoritative inherits dns
+} # Class:: public::dns::authoritative inherits dns
