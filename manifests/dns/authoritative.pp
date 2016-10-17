@@ -9,7 +9,9 @@
 # Class:: public::dns::authoritative inherits dns
 #
 #
-class public::dns::authoritative inherits dns {
+class public::dns::authoritative {
+
+  include 'bind'
 
   package { 'zonecheck':
     ensure => installed,
@@ -28,7 +30,7 @@ class public::dns::authoritative inherits dns {
     zonedir     => '/etc/bind',
     owner       => 'bind',
     group       => 'bind',
-    source_base => 'puppet:///modules/public/authoritative/confs/',
+    source_base => 'puppet:///modules/private/authoritative/confs/',
     # require     => File['/etc/all-knowing-dns.conf'],
   }
 

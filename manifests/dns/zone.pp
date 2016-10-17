@@ -11,7 +11,7 @@ define public::dns::zone {
     zonedir     => '/etc/bind/zones',
     owner       => 'bind',
     group       => 'bind',
-    source_base => 'puppet:///modules/public/authoritative/zones/',
+    source_base => 'puppet:///modules/private/authoritative/zones/',
     require     => File['/etc/bind/zones'],
   }
 }
