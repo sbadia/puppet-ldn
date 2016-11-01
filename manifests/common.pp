@@ -43,10 +43,19 @@ class public::common {
     'man-db','vim','zsh','bash','iputils-ping','dnsutils',
     'python-apt','aptitude','debian-goodies','molly-guard'])
 
-  # TODO, sudo / sudo-ldap
-  # TODO, sudo %puppetdev
-  # TODO, ssh_auth_sock
   # TODO, backup user
+
+  include '::sudo'
+
+  sudo::conf { 'ssh_auth_sock':
+    priority => 90,
+    content  => 'Defaults env_reset, env_keep += "SSH_AUTH_SOCK"',
+  }
+
+  sudo::conf { 'puppetdev':
+    priority =>  10,
+    content  => '%puppetdev ALL=(ALL) NOPASSWD: /usr/bin/puppet',
+  }
 
   file {
     '/usr/local/bin/cronic':
@@ -65,6 +74,36 @@ class public::common {
     '/bin/sh':
       ensure => link,
       target => '/bin/dash';
+  }
+
+  package { 'openssh-server': ensure => present; }
+  service { 'ssh':
+    ensure     => running,
+    hasstatus  => true,
+    hasrestart => true,
+    enable     => true,
+  }
+
+  # Setup ssh
+  public::common::sshconfigline {
+    'Port':
+      value => '2222';
+    'PermitRootLogin':
+      value => 'no';
+    'LoginGraceTime':
+      value => '60';
+    'UsePrivilegeSeparation':
+      value => 'yes';
+    'PermitEmptyPasswords':
+      value => 'no';
+    'PasswordAuthentication':
+      value => 'no';
+    'StrictModes':
+      value => 'yes';
+    'UseDNS':
+      value => 'no';
+    'MaxStartups':
+      value => '10:30:60';
   }
 
   file {
