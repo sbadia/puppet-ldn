@@ -84,12 +84,25 @@ class public::common {
     enable     => true,
   }
 
+  case $::fqdn {
+    'cannibalon.ldn-fai.net', 'eternium.ldn-fai.net': {
+      public::ssh::configline {
+        'PermitRootLogin':
+          value => 'without-password';
+      }
+    }
+    default: {
+      public::ssh::configline {
+        'Port':
+          value => '2222';
+        'PermitRootLogin':
+          value => 'no';
+      }
+    }
+  }
+
   # Setup ssh
   public::ssh::configline {
-    'Port':
-      value => '2222';
-    'PermitRootLogin':
-      value => 'no';
     'LoginGraceTime':
       value => '60';
     'UsePrivilegeSeparation':
