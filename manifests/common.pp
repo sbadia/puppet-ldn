@@ -85,7 +85,7 @@ class public::common {
   }
 
   # Setup ssh
-  public::common::sshconfigline {
+  public::ssh::configline {
     'Port':
       value => '2222';
     'PermitRootLogin':

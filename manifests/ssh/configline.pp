@@ -1,17 +1,17 @@
-# Module:: public::common
-# Manifest:: sshconfigline.pp
+# Module:: public::ssh
+# Manifest:: configline.pp
 #
 # Author:: Sebastien Badia (<seb@sebian.fr>)
 # Date:: 2013-08-25 20:15:45 +0200
 # Maintainer:: Sebastien Badia (<seb@sebian.fr>)
 #
 
-# Define:: public::common::sshconfigline
+# Define:: public::ssh::configline
 # Args::
 #   $ensure = present,
 #   $value  = false,
 #
-define public::common::sshconfigline(
+define public::ssh::configline(
   $ensure = present,
   $value = false
 ) {
@@ -47,4 +47,4 @@ define public::common::sshconfigline(
       fail("ensure value must be present, add or absent, not ${ensure}")
     }
   }
-} # Define: public::common::sshconfigline
+} # Define: public::ssh::configline
