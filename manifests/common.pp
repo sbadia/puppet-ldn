@@ -13,6 +13,7 @@
 class public::common {
 
   include '::public::apt'
+  include '::etckeeper'
   include '::sudo'
 
   class {'dnsclient':
