@@ -14,6 +14,7 @@ class public::common {
 
   include '::public::apt'
   include '::etckeeper'
+  include '::rsyslog::client'
   include '::sudo'
 
   class {'dnsclient':

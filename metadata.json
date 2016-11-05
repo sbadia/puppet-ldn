@@ -16,6 +16,7 @@
   "dependencies": [
     { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.2.0 <5.0.0" },
     { "name": "saz/sudo", "version_requirement": ">=3.1.0 <4.0.0" },
+    { "name": "saz/rsyslog", "version_requirement": ">=3.3.0 <4.0.0" },
     { "name": "thomasvandoren/etckeeper", "version_requirement": ">=0.0.9 <1.0.0" }
   ],
   "data_provider": null
