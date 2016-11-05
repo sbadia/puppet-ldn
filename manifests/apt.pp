@@ -6,9 +6,7 @@
 
 class public::apt {
 
-  class { 'apt':
-    purge_sources_list => true,
-  }
+  include ::apt
 
   # setup http://ftp.fr.debian.org/{debian,ubuntu}
   $downcase_lsbdistid = downcase($::lsbdistid)
