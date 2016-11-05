@@ -15,8 +15,8 @@ class public::common {
   class {'dnsclient':
     nameservers => hiera_array('nameservers', undef),
     options     => 'UNSET',
-    search      => hiera("domain"),
-    domain      => hiera("domain"),
+    search      => hiera('domain'),
+    domain      => hiera('domain'),
   }
 
   # TODO, apt-proxy
@@ -30,13 +30,13 @@ class public::common {
   # Setup timezone
   class {
     'timezone':
-      timezone    => hiera("timezone"),
+      timezone    => hiera('timezone'),
       autoupgrade => false;
   }
 
   class {'locales':
     default_locale => 'en_US.UTF-8',
-    locales        => hiera("locales")
+    locales        => hiera('locales')
   }
 
   ensure_packages(['tmux','screen','netcat','htop','rsync','host','dmraid',
