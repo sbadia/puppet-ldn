@@ -12,6 +12,9 @@
 #
 class public::common {
 
+  include '::public::apt'
+  include '::sudo'
+
   class {'dnsclient':
     nameservers => hiera_array('nameservers', undef),
     options     => 'UNSET',
@@ -44,8 +47,6 @@ class public::common {
     'python-apt','aptitude','debian-goodies','molly-guard'])
 
   # TODO, backup user
-
-  include '::sudo'
 
   sudo::conf { 'ssh_auth_sock':
     priority => 90,
@@ -126,8 +127,6 @@ class public::common {
       refreshonly => true,
       logoutput   => on_failure;
   }
-
-  # TODO, setup sources
 
   class {'::motd': template => 'public/common/motd.erb'; }
 
