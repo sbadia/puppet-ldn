@@ -40,7 +40,7 @@ class public::common {
   }
 
   ensure_packages(['tmux','screen','netcat','htop','rsync','host','dmraid',
-    'man-db','vim','zsh','bash','iputils-ping','dnsutils',
+    'man-db','vim','zsh','bash','iputils-ping','dnsutils','logrotate',
     'python-apt','aptitude','debian-goodies','molly-guard'])
 
   # TODO, backup user
