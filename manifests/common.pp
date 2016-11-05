@@ -121,7 +121,7 @@ class public::common {
 
   exec {
     'reload hostname':
-      command     => '/bin/sh /etc/init.d/hostname.sh start',
+      command     => "/usr/bin/hostnamectl set-hostname ${::fqdn}",
       user        => root,
       refreshonly => true,
       logoutput   => on_failure;
