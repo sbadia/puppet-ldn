@@ -84,24 +84,8 @@ class public::common {
     enable     => true,
   }
 
-  case $::fqdn {
-    'cannibalon.ldn-fai.net', 'eternium.ldn-fai.net': {
-      public::ssh::configline {
-        'PermitRootLogin':
-          value => 'without-password';
-      }
-    }
-    default: {
-      public::ssh::configline {
-        'Port':
-          value => '2222';
-        'PermitRootLogin':
-          value => 'no';
-      }
-    }
-  }
-
   # Setup ssh
+  # See ::private::common for other SSH configuration
   public::ssh::configline {
     'LoginGraceTime':
       value => '60';
@@ -144,7 +128,6 @@ class public::common {
   }
 
   # TODO, setup sources
-  # TODO, setup ssh
 
   class {'::motd': template => 'public/common/motd.erb'; }
 
