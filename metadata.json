@@ -1,14 +1,21 @@
 {
-  "name": "ldn",
+  "name": "ldn-public",
   "version": "0.0.1",
   "author": "Lorraine Data Network",
   "summary": "Lorraine Data Network internal puppet module (all specific configurations)",
   "license": "Apache-2.0",
-  "source": "gitldn:puppet/puppet",
+  "source": "git+ssh://git@ldn-fai.net:puppet/puppet-public.git",
   "project_page": "https://wiki.ldn-fai.net/w/Puppet",
   "issues_url": "https://repo.ldn-fai.net/redmine/",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": ["8"]
+    }
+  ],
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.2.0 <5.0.0" },
+    { "name": "saz/sudo", "version_requirement": ">=3.1.0 <4.0.0" }
   ],
   "data_provider": null
 }
