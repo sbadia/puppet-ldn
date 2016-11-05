@@ -5,6 +5,11 @@
 # Author:: Sebastien Badia (<seb@sebian.fr>)
 
 class public::apt {
+
+  class { 'apt':
+    purge_sources_list => true,
+  }
+
   # setup http://ftp.fr.debian.org/{debian,ubuntu}
   $downcase_lsbdistid = downcase($::lsbdistid)
 
