@@ -2,7 +2,6 @@
 # Manifest:: apt.pp
 #
 # Lorraine Data Network http://ldn-fai.net/
-# Author:: Sebastien Badia (<seb@sebian.fr>)
 
 class public::apt {
 
