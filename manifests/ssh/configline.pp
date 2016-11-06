@@ -1,10 +1,7 @@
 # Module:: public::ssh
 # Manifest:: configline.pp
 #
-# Author:: Sebastien Badia (<seb@sebian.fr>)
-# Date:: 2013-08-25 20:15:45 +0200
-# Maintainer:: Sebastien Badia (<seb@sebian.fr>)
-#
+# Lorraine Data Network http://ldn-fai.net/
 
 # Define:: public::ssh::configline
 # Args::

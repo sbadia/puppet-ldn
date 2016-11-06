@@ -1,12 +1,9 @@
 # Module:: public
 # Manifest:: dns/authoritative.pp
 #
-# Author:: Julien Vaubourg (<julien@vaubourg.com>)
-# Date:: 2013-09-21 13:36:02 +0200
-# Maintainer:: Julien Vaubourg (<julien@vaubourg.com>)
-#              Sebastien Badia (<seb@sebian.fr>)
-#
-# Class:: public::dns::authoritative inherits dns
+# Lorraine Data Network http://ldn-fai.net/
+
+# Class:: public::dns::authoritative
 #
 #
 class public::dns::authoritative {
@@ -45,4 +42,4 @@ class public::dns::authoritative {
   create_resources(public::dns::zone, $zones)
 
 
-} # Class:: public::dns::authoritative inherits dns
+} # Class:: public::dns::authoritative
