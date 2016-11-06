@@ -18,6 +18,7 @@ class public::common {
   include '::rsyslog::client'
   include '::sudo'
   include '::timezone'
+  include '::unattended_upgrades'
 
   # TODO, apt-proxy
 

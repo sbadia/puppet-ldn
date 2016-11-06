@@ -19,7 +19,8 @@
     { "name": "saz/sudo", "version_requirement": ">=3.1.0 <4.0.0" },
     { "name": "thias/bind", "version_requirement": ">=0.5.1 <1.0.0" },
     { "name": "saz/rsyslog", "version_requirement": ">=3.3.0 <4.0.0" },
-    { "name": "thomasvandoren/etckeeper", "version_requirement": ">=0.0.9 <1.0.0" }
+    { "name": "thomasvandoren/etckeeper", "version_requirement": ">=0.0.9 <1.0.0" },
+    { "name": "puppet/unattended_upgrades", "version_requirement": ">=2.1.0 <3.0.0" }
   ],
   "data_provider": null
 }
