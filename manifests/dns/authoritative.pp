@@ -11,7 +11,7 @@
 #
 class public::dns::authoritative {
 
-  include 'bind'
+  include '::bind'
 
   package { 'zonecheck':
     ensure => installed,

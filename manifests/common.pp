@@ -12,17 +12,16 @@
 #
 class public::common {
 
+  # Internal
   include '::public::apt'
+
+  # External (hiera for configuration)
+  include '::dnsclient'
   include '::etckeeper'
+  include '::locales'
   include '::rsyslog::client'
   include '::sudo'
-
-  class {'dnsclient':
-    nameservers => hiera_array('nameservers', undef),
-    options     => 'UNSET',
-    search      => hiera('domain'),
-    domain      => hiera('domain'),
-  }
+  include '::timezone'
 
   # TODO, apt-proxy
 
@@ -30,18 +29,6 @@ class public::common {
   # https://bugs.launchpad.net/ubuntu/+source/apt-xapian-index/+bug/363695
   package {'apt-xapian-index':
     ensure => purged,
-  }
-
-  # Setup timezone
-  class {
-    'timezone':
-      timezone    => hiera('timezone'),
-      autoupgrade => false;
-  }
-
-  class {'locales':
-    default_locale => 'en_US.UTF-8',
-    locales        => hiera('locales')
   }
 
   ensure_packages(['tmux','screen','netcat','htop','rsync','host','dmraid',
