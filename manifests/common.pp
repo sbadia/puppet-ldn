@@ -41,7 +41,7 @@ class public::common {
 
   sudo::conf { 'puppetdev':
     priority =>  10,
-    content  => '%puppetdev ALL=(ALL) NOPASSWD: /usr/bin/puppet',
+    content  => '%puppetdev ALL=(ALL) NOPASSWD: /usr/bin/puppet, /bin/mkdir, /bin/chown, /bin/rm',
   }
 
   file {
