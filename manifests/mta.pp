@@ -13,4 +13,6 @@ class public::mta {
     notify    => Service['postfix'];
   }
 
+  #TODO: nullmailer?
+
 }
