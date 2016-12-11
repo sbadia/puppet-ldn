@@ -93,7 +93,7 @@ class public::common {
   file {
     '/etc/hostname':
       ensure  => file,
-      content => $::fqdn,
+      content => $::hostname,
       owner   => root,
       group   => root,
       mode    => '0644',
@@ -108,7 +108,7 @@ class public::common {
 
   exec {
     'reload hostname':
-      command     => "/usr/bin/hostnamectl set-hostname ${::fqdn}",
+      command     => "/usr/bin/hostnamectl set-hostname ${::hostname}",
       user        => root,
       refreshonly => true,
       logoutput   => on_failure;
