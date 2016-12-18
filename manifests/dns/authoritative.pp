@@ -6,7 +6,9 @@
 # Class:: public::dns::authoritative
 #
 #
-class public::dns::authoritative {
+class public::dns::authoritative(
+  $zones = []
+) {
 
   include '::bind'
 
@@ -28,7 +30,6 @@ class public::dns::authoritative {
     owner       => 'bind',
     group       => 'bind',
     source_base => 'puppet:///modules/private/authoritative/confs/',
-    # require     => File['/etc/all-knowing-dns.conf'],
   }
 
   file {
@@ -38,8 +39,6 @@ class public::dns::authoritative {
       group  => 'bind',
   }
 
-  $zones = hiera_hash('zones', {})
   create_resources(public::dns::zone, $zones)
-
 
 } # Class:: public::dns::authoritative
