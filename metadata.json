@@ -2,7 +2,7 @@
   "name": "ldn-public",
   "version": "0.0.1",
   "author": "Lorraine Data Network",
-  "summary": "Lorraine Data Network internal puppet module (all specific configurations)",
+  "summary": "Lorraine Data Network public puppet module",
   "license": "Apache-2.0",
   "source": "git+ssh://git@ldn-fai.net:puppet/puppet-public.git",
   "project_page": "https://wiki.ldn-fai.net/w/Puppet",
