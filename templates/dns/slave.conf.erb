@@ -1,0 +1,17 @@
+// MANAGED BY PUPPET
+// Module:: public::dns
+// File:: public/templates/dns/slave.conf.erb
+
+<% if !@slave_zones.empty? -%>
+// <%= @title %>
+<% @slave_zones.each do |zname| -%>
+zone "<%= zname %>" {
+  type slave;
+  masters { <%= @master %>; };
+  allow-query { any; };
+  allow-transfer { xfer; };
+  file "<%= @zonedir %>/db.<%= zname %>";
+};
+
+<% end -%>
+<% end -%>
