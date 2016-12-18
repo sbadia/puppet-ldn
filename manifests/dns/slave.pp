@@ -15,6 +15,8 @@ class public::dns::slave(
   $named_conf_source = '',
 ) {
 
+  include '::bind'
+
   public::dns::slave_zone { $slave_name:
     slave_zones => $zones,
     master      => $master,
