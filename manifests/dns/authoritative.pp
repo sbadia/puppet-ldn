@@ -7,7 +7,7 @@
 #
 #
 class public::dns::authoritative(
-  $zones = []
+  $zones = {}
 ) {
 
   include '::bind'
