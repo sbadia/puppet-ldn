@@ -49,18 +49,18 @@ class public::lookingglass::lgproxy {
     group   => staff,
     mode    => '0755',
     notify  => Service['lgproxy'],
-    require => [
-      Package['bird6'],
-      Package['bird'],
-    ],
+    #require => [
+    #  Package['bird6'],
+    #  Package['bird'],
+    #],
   }
 
   file { [ '/var/run/bird/bird6.ctl', '/var/run/bird/bird.ctl' ]:
     owner   => 'root',
     group   => 'lgproxy',
-    require => [
-      Package['bird6'],
-      Package['bird'],
-    ],
+    #require => [
+    #  Package['bird6'],
+    #  Package['bird'],
+    #],
   }
 }
