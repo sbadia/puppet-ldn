@@ -1,0 +1,11 @@
+[Unit]
+Description=Looking glass for Bird (proxy)
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/bird-lg/lgproxy.py
+
+[Install]
+WantedBy=multi-user.target
