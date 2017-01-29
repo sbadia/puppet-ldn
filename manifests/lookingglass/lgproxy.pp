@@ -34,6 +34,13 @@ class public::lookingglass::lgproxy {
     mode   => '0755',
   }
 
+  file { '/var/log/bird-lg/':
+    ensure => directory,
+    owner  => 'lgproxy',
+    group  => staff,
+    mode   => '0755',
+  }
+
   file { '/opt/bird-lg/lgproxy.cfg':
     ensure => file,
     owner  => root,

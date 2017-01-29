@@ -5,6 +5,8 @@ After=network.target
 
 [Service]
 Type=simple
+User=lgproxy
+Group=lgproxy
 ExecStart=/opt/bird-lg/lgproxy.py
 
 [Install]
