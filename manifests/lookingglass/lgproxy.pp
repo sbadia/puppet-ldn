@@ -6,6 +6,10 @@
 
 class public::lookingglass::lgproxy {
 
+  package { [ 'python-dnspython', 'python-pydot', 'python-flask' ]:
+    ensure => installed,
+  }
+
   user { 'lgproxy':
     ensure => present,
     system => true,

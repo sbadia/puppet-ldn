@@ -6,7 +6,7 @@
 
 class public::lookingglass::lgweb {
 
-  package { [ 'python-memcache', 'python-dnspython', 'python-pydot', 'python-flask', 'whois' ]:
+  package { [ 'python-dnspython', 'python-pydot', 'python-flask' ]:
     ensure => installed,
   }
 
