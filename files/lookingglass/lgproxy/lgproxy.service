@@ -7,7 +7,7 @@ After=network.target
 Type=simple
 User=lgproxy
 Group=lgproxy
-ExecStart=/opt/bird-lg/lgproxy.py
+ExecStart=python /opt/bird-lg/lgproxy.py
 
 [Install]
 WantedBy=multi-user.target
