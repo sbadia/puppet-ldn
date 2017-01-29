@@ -44,7 +44,7 @@ class public::lookingglass::lgweb {
     mode   => '0755',
   }
 
-  file { '/opt/bird-lg/lgweb.cfg':
+  file { '/opt/bird-lg/lg.cfg':
     ensure => file,
     owner  => root,
     group  => staff,
