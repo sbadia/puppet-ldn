@@ -4,7 +4,7 @@
 # Sources
 # git clone https://github.com/sileht/bird-lg -C /opt/
 
-class public::lookingglass::lgproxy inherits public::lookingglass {
+class public::lookingglass::lgproxy {
 
   user { 'lgproxy':
     ensure => present,
