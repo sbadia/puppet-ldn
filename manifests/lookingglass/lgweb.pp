@@ -4,7 +4,7 @@
 # Sources
 # git clone https://github.com/sileht/bird-lg -C /opt/
 
-class public::lookingglass::lgweb inherits lookingglass {
+class public::lookingglass::lgweb inherits public::lookingglass {
 
   package { [ 'python-memcache', 'python-dnspython', 'python-pydot', 'python-flask', 'whois' ]:
     ensure => installed,
