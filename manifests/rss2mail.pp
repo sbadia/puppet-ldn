@@ -29,6 +29,7 @@ class public::rss2mail($list, $feed)  {
       require => User['user_rss2mail'],
     } ->
 
+    # TODO, We should probably generate the file ourself instead (customize "from")
     # Check if existing conf else create it
     # "/usr/bin/r2e new $list" : declare mail adress target
     # "/usr/bin/r2e add $feed" add feed
