@@ -39,8 +39,8 @@ class public::rss2mail($list, $feed)  {
       creates     => "${home_user}/.rss2email/feeds.dat",
       user        => $user,
       environment => ["HOME=${home_user}"],
-      command    => "/usr/bin/r2e new $list && /usr/bin/r2e add main $feed && /usr/bin/r2e run --no-send",
-      # command     => "/usr/bin/r2e new ${list} && /usr/bin/r2e add main ${feed} && /usr/bin/r2e run",
+      # command    => "/usr/bin/r2e new $list && /usr/bin/r2e add main $feed && /usr/bin/r2e run --no-send",
+      command     => "/usr/bin/r2e new ${list} && /usr/bin/r2e add main ${feed} && /usr/bin/r2e run",
       require     => [ Package['rss2email'], User['user_rss2mail'], File[$home_user] ],
     } ->
     # Schedule process "/usr/bin/r2e run"
