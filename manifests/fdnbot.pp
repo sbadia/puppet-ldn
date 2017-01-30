@@ -33,7 +33,7 @@ class public::fdnbot {
       owner   => 'fdnbot',
       group   => 'fdnbot',
       source  => 'puppet:///modules/public/fdnbot/fdnbot.pl',
-      notify  => Service['fdn-accbot'],
+      notify  => Service['fdnbot'],
       require => Package['libmail-sendmail-perl'];
     '/var/www/fdn.ldn-fai.net':
       ensure => directory,
