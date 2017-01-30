@@ -3,7 +3,7 @@
 
 class public::fdnbot {
 
-  ensure_packages(['libmail-sendmail-perl','libbot-basicbot-perl'])
+  ensure_packages(['libmail-sendmail-perl','libbot-basicbot-perl','libmime-tools-perl'])
 
   user { 'fdnbot':
     ensure => present,
