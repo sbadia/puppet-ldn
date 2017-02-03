@@ -35,14 +35,18 @@ class public::rss2mail($list, $feed)  {
     # "/usr/bin/r2e add $feed" add feed
     # "/usr/bin/r2e run" send a mail for each new entry in feed
     # " --no-send" no send. Useful the first time
-    exec { 'rss2emailconf':
-      creates     => "${home_user}/.rss2email/feeds.dat",
-      user        => $user,
-      environment => ["HOME=${home_user}"],
-      # command    => "/usr/bin/r2e new $list && /usr/bin/r2e add main $feed && /usr/bin/r2e run --no-send",
-      command     => "/usr/bin/r2e new ${list} && /usr/bin/r2e add main ${feed} && /usr/bin/r2e run",
-      require     => [ Package['rss2email'], User['user_rss2mail'], File[$home_user] ],
-    } ->
+
+    # This exec seems doesn't work now (201702)
+    # So Thinking create manually the configuration
+#    exec { 'rss2emailconf':
+#      creates     => "${home_user}/.rss2email/feeds.dat",
+#      user        => $user,
+#      environment => ["HOME=${home_user}"],
+#      # command    => "/usr/bin/r2e new $list && /usr/bin/r2e add main $feed && /usr/bin/r2e run --no-send",
+#      command     => "/usr/bin/r2e new ${list} && /usr/bin/r2e add main ${feed} && /usr/bin/r2e run",
+#      require     => [ Package['rss2email'], User['user_rss2mail'], File[$home_user] ],
+#    } ->
+
     # Schedule process "/usr/bin/r2e run"
     cron { 'r2e: use for automatic mailing a rss feed':
       command => '/usr/bin/r2e run',
