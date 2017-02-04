@@ -1,8 +1,12 @@
 [Unit]
 Description=Bittorent LDN Tracker
-After=network.target auditd.service
+Requires=network.target
+After=network.target
 
 [Service]
+Type=simple
+User=bttrack
+Group=bttrack
 ExecStart=/usr/bin/bttrack --dfile <%= @dfile %> --logfile <%= @logfile %> --port <%= @port %> --nat_check <%= @nat_check %> --allowed_dir <%= @allowed_dir %> --ipv6_enabled <%= @ipv6_enabled %> --ipv6_binds_v4 <%= @ipv6_binds_v4 %> --bind <%= @bind %>
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
