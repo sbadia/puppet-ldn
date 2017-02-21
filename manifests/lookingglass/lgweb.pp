@@ -18,6 +18,7 @@ class public::lookingglass::lgweb {
 
   user { 'lgweb':
     ensure => present,
+    shell  => '/usr/sbin/nologin',
     system => true,
   }
 

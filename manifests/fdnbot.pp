@@ -8,6 +8,7 @@ class public::fdnbot {
   user { 'fdnbot':
     ensure => present,
     system => true,
+    shell  => '/usr/sbin/nologin',
   }
 
   file { '/etc/systemd/system/fdnbot.service':

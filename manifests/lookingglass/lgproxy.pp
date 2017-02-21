@@ -12,6 +12,7 @@ class public::lookingglass::lgproxy {
 
   user { 'lgproxy':
     ensure => present,
+    shell  => '/usr/sbin/nologin',
     system => true,
   }
 

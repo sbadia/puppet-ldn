@@ -30,6 +30,7 @@ class public::bttrack(
     ensure  => present,
     system  => true,
     comment => 'Bittorent Tracker User',
+    shell   => '/usr/sbin/nologin',
   }
 
   service { 'bttrack':
