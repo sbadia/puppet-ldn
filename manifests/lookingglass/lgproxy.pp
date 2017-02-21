@@ -51,28 +51,20 @@ class public::lookingglass::lgproxy {
     owner  => root,
     group  => staff,
     mode   => '0644',
-    source => "puppet:///modules/private/lookingglass/lgproxy/lgproxy-${hostname}.cfg",
+    source => "puppet:///modules/private/lookingglass/lgproxy/lgproxy-${::hostname}.cfg",
     notify => Service['lgproxy'],
   }
 
   file { '/opt/bird-lg/lgproxy.py':
-    ensure  => file,
-    owner   => root,
-    group   => staff,
-    mode    => '0755',
-    notify  => Service['lgproxy'],
-    #require => [
-    #  Package['bird6'],
-    #  Package['bird'],
-    #],
+    ensure => file,
+    owner  => root,
+    group  => staff,
+    mode   => '0755',
+    notify => Service['lgproxy'],
   }
 
   file { [ '/var/run/bird/bird6.ctl', '/var/run/bird/bird.ctl' ]:
-    owner   => 'root',
-    group   => 'lgproxy',
-    #require => [
-    #  Package['bird6'],
-    #  Package['bird'],
-    #],
+    owner => 'root',
+    group => 'lgproxy',
   }
 }
