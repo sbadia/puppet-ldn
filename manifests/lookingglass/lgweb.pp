@@ -9,6 +9,7 @@ class public::lookingglass::lgweb(
   $ssl_cert_source = '/etc/letsencrypt/pem/lg.ldn-fai.net.pem',
   $ssl_key_source = '/etc/letsencrypt/private/lg.ldn-fai.net.key',
   $ssl_dhparam_source = '/etc/letsencrypt/dhparam.pem',
+  $add_config_source  = 'puppet:///modules/private/nginx/leela/lg.conf',
 ) {
 
   package { [ 'python-dnspython', 'python-pydot', 'python-flask' ]:
@@ -27,6 +28,7 @@ class public::lookingglass::lgweb(
     ssl_cert_source    => $ssl_cert_source,
     ssl_key_source     => $ssl_key_source,
     ssl_dhparam_source => $ssl_dhparam_source,
+    add_config_source  => $add_config_source,
   }
 
   user { 'lgweb':
