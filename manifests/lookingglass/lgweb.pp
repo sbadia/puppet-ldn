@@ -4,16 +4,29 @@
 # Sources
 # git clone https://github.com/sileht/bird-lg -C /opt/
 
-class public::lookingglass::lgweb {
+class public::lookingglass::lgweb(
+  $domains = ['lg.ldn-fai.net','lg.as60197.net'],
+  $ssl_cert_source = '/etc/letsencrypt/pem/lg.ldn-fai.net.pem',
+  $ssl_key_source = '/etc/letsencrypt/private/lg.ldn-fai.net.key',
+  $ssl_dhparam_source = '/etc/letsencrypt/dhparam.pem',
+) {
 
   package { [ 'python-dnspython', 'python-pydot', 'python-flask' ]:
     ensure => installed,
   }
 
+  nginxpack::vhost::redirection { 'https-lgweb':
+    domains  => $domains,
+    to_https => true,
+  }
   nginxpack::vhost::proxy { 'lgweb':
-    domains   => [ 'lg.ldn-fai.net', 'lg.as60197.net' ],
-    to_domain => '127.0.0.1',
-    to_port   => 5000,
+    domains            => $domains,
+    to_domain          => '127.0.0.1',
+    to_port            => 5000,
+    https              => true,
+    ssl_cert_source    => $ssl_cert_source,
+    ssl_key_source     => $ssl_key_source,
+    ssl_dhparam_source => $ssl_dhparam_source,
   }
 
   user { 'lgweb':
