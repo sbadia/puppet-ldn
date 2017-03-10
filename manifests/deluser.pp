@@ -8,7 +8,7 @@ define public::deluser {
     notify => Exec["backup ~${name} before remove"],
   }
   exec { "backup ~${name} before remove":
-    command     => "/bin/tar czf ${name}.tgz ${name}",
+    command     => "/bin/tar czf ${name}.tgz ${name} && rm -rf ${name}",
     cwd         => '/home',
     user        => root,
     refreshonly => true,
