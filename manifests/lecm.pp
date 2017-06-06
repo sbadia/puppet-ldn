@@ -21,4 +21,11 @@ class public::lecm {
   file { '/etc/letsencrypt':
     ensure => directory,
   }
+
+  cron { 'Renew of lecm certificates':
+    user    => root,
+    command => '/usr/bin/lecm --renew',
+    minute  => 30,
+    hour    => 23,
+  }
 }
