@@ -62,7 +62,7 @@ class public::rss2mail($list, $feed)  {
       source => 'puppet:///modules/public/rss2mail/rss2email.cfg',
       owner  => $user,
       group  => $user,
-      mode   => '0755',
+      mode   => '0644',
       require => File[$home_user],
   }
 
