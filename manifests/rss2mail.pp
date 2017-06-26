@@ -7,7 +7,7 @@ class public::rss2mail($list, $feed)  {
   $user = 'rss2mail'
   $home_user = '/home/rss2mail'
 
-  # Valid for Debian 7
+  # Valid for Debian 7 8
   if ($::operatingsystem =~ /Debian/) and ($::operatingsystemrelease =~ /^8/) {
     # Install "rrr2email"
     package { ['rss2email']:
@@ -55,6 +55,16 @@ class public::rss2mail($list, $feed)  {
       minute  => '02',
       require => User['user_rss2mail'],
     }
+
+     file {
+    '/home/rss2mail/.config/rss2email.cfg':
+      ensure => file,
+      source => 'puppet:///modules/public/rss2mail/rss2email.cfg',
+      owner  => $user,
+      group  => $user,
+      mode   => '0755';
+      require => File[$home_user],
+  }
 
   } else {
     notify {"[Error] OS not supported (${::osfamily} - ${::operatingsystemrealease})":}
