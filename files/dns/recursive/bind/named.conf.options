@@ -41,14 +41,7 @@ options {
   version "42";
 
   pid-file "/var/run/named/named.pid";
-
-  // Stats
-  statistics-file "/var/named/named.stats";
-  memstatistics-file "/var/named/named.memstats";
-  // Not yet implemented in BIND9
-  //statistics-interval 30;
-  dump-file "/var/backups/named.dump";
-  zone-statistics yes;
+  dump-file "/var/lib/bind/named.dump";
 
   notify no;
   interface-interval 0;
