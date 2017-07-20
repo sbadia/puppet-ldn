@@ -7,8 +7,7 @@ class public::rss2mail($list, $feed)  {
   $user = 'rss2mail'
   $home_user = '/home/rss2mail'
 
-  # Valid for Debian 7 8
-  if ($::operatingsystem =~ /Debian/) and ($::operatingsystemrelease =~ /^8/) {
+  if ($::operatingsystem =~ /Debian/) and ($::operatingsystemrelease =~ /^9/) {
     # Install "rrr2email"
     package { ['rss2email']:
       ensure => installed,
@@ -56,13 +55,12 @@ class public::rss2mail($list, $feed)  {
       require => User['user_rss2mail'],
     }
 
-     file {
-    '/home/rss2mail/.config/rss2email.cfg':
-      ensure => file,
-      source => 'puppet:///modules/public/rss2mail/rss2email.cfg',
-      owner  => $user,
-      group  => $user,
-      mode   => '0644',
+    file { '/home/rss2mail/.config/rss2email.cfg':
+      ensure  => file,
+      source  => 'puppet:///modules/public/rss2mail/rss2email.cfg',
+      owner   => $user,
+      group   => $user,
+      mode    => '0644',
       require => File[$home_user],
   }
 
