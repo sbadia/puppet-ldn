@@ -73,21 +73,31 @@ class public::common {
 
   # Setup ssh
   # See ::private::common for other SSH configuration
-  public::ssh::configline {
-    'LoginGraceTime':
-      value => '60';
-    'UsePrivilegeSeparation':
-      value => 'yes';
-    'PermitEmptyPasswords':
-      value => 'no';
-    'PasswordAuthentication':
-      value => 'no';
-    'StrictModes':
-      value => 'yes';
-    'UseDNS':
-      value => 'no';
-    'MaxStartups':
-      value => '10:30:60';
+  case $::lsbdistcodename {
+    'stretch': {
+      public::ssh::configline {
+        'UseDNS':
+          value => 'no';
+      }
+    }
+    default: {
+      public::ssh::configline {
+        'LoginGraceTime':
+          value => '60';
+        'UsePrivilegeSeparation':
+          value => 'yes';
+        'PermitEmptyPasswords':
+          value => 'no';
+        'PasswordAuthentication':
+          value => 'no';
+        'StrictModes':
+          value => 'yes';
+        'UseDNS':
+          value => 'no';
+        'MaxStartups':
+          value => '10:30:60';
+      }
+    }
   }
 
   file {
